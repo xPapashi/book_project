@@ -10,6 +10,8 @@ body {
     background-color: rgb(245, 239, 239);
 }
 
+/* CONTAINER */
+
 .container {
     height: 100vh;
     display: flex;
@@ -17,6 +19,8 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* HEADER */
 
 .header {
     margin-bottom: 2em;
@@ -27,13 +31,17 @@ body {
     position: absolute;
     width: 182.14px;
     height: 3px;
-    background-color: #66e266;;
+    /* background-color: #66e266; */
+    background-color: lightskyblue;
 }
 
 .header span {
-    color: #288328;
+    /*color: #288328; */
+    color: #3294d1;
     font-weight: 700;
 }
+
+/* MODAL */
 
 .container .modal {
     display: flex;
@@ -49,9 +57,43 @@ body {
 .modal button {
     border: none;
     border-radius: 10px;
-    background-color: #66e266;
+    /* background-color: #66e266; */
+    background-color: lightskyblue;
     color: white;
     padding: 1em;
     font-weight: 600;
     cursor: pointer;
+}
+
+/* CARD */
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: auto;
+    padding-bottom: 2em;
+}
+
+.card-container .title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 1em;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1em;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 2em;
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
