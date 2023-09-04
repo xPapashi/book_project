@@ -44,11 +44,13 @@ function addBookToLibrary() {
   displayBook();
 }
 
+//Remove object from array
 function removeBookFromLibrary(index) {
   myLibrary.splice(index, 1);
   displayBook();
 }
 
+//Display books on the page
 function displayBook() {
   if (myLibrary.length > 0) {
     cards.innerHTML = "";
@@ -83,8 +85,27 @@ function displayBook() {
     cards.appendChild(card);
   }
   removeCards();
+  changeRead();
 }
 
+//Change read status
+function changeRead() {
+  const readCards = document.querySelectorAll(".rmRead");
+
+  readCards.forEach((button) => {
+    button.addEventListener("click", function () {
+      const buttonsClass = button.parentElement;
+      const cardClass = buttonsClass.parentElement;
+      const index = cardClass.getAttribute("data-index");
+
+      console.log(myLibrary[index].read);
+      myLibrary[index].read = !myLibrary[index].read;
+      displayBook();
+    });
+  });
+}
+
+//Remove cards from the page
 function removeCards() {
   const removeCards = document.querySelectorAll(".rmCard");
 
@@ -142,7 +163,7 @@ submitBtn.addEventListener("click", function (e) {
 /* CARDS */
 function checkEmptyCards() {
   if (!cards.hasChildNodes()) {
-    cards.innerHTML = "<p>There are no book at the moment...</p>";
+    cards.innerHTML = "<p>There are no books at the moment...</p>";
   }
 }
 
