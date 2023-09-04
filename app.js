@@ -6,6 +6,42 @@ const myLibrary = [
     pages: "250",
     read: false,
   },
+  {
+    title: "Harry Potter",
+    author: "J. K. Rowling",
+    pages: "250",
+    read: false,
+  },
+  {
+    title: "Harry Potter",
+    author: "J. K. Rowling",
+    pages: "250",
+    read: false,
+  },
+  {
+    title: "Harry Potter",
+    author: "J. K. Rowling",
+    pages: "250",
+    read: false,
+  },
+  {
+    title: "Harry Potter",
+    author: "J. K. Rowling",
+    pages: "250",
+    read: false,
+  },
+  {
+    title: "Harry Potter",
+    author: "J. K. Rowling",
+    pages: "250",
+    read: false,
+  },
+  {
+    title: "Harry Potter",
+    author: "J. K. Rowling",
+    pages: "250",
+    read: false,
+  },
 ];
 
 //Searching for button class
@@ -141,7 +177,10 @@ function closeModal() {
 }
 
 //Listen for a click on "Add a book" button
-btn.addEventListener("click", openModal);
+btn.addEventListener("click", function () {
+  openModal();
+  window.scrollTo(0, 0);
+});
 
 //Listen for a click on the overlay
 overlay.addEventListener("click", closeModal);
@@ -153,11 +192,13 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+//Add book from form and clear it
 submitBtn.addEventListener("click", function (e) {
   addBookToLibrary();
   e.preventDefault();
   closeModal();
   form.reset();
+  window.scrollTo(0, 620);
 });
 
 /* CARDS */
@@ -166,6 +207,25 @@ function checkEmptyCards() {
     cards.innerHTML = "<p>There are no books at the moment...</p>";
   }
 }
+
+/* Scroll Down Event */
+const scrollDown = document.querySelector(".scroll-down");
+
+scrollDown.addEventListener("click", () => {
+  window.scrollTo(0, 620);
+});
+
+/* Scroll Up Event */
+const scrollUp = document.querySelector(".scroll-up");
+
+scrollUp.addEventListener("click", () => {
+  window.scrollTo(0, 0);
+});
+
+window.onscroll = function() {
+  console.log("SCROLLING");
+  scrollUp.style.display = window.scrollY > 300 ? 'block' : 'none'; 
+};
 
 //Initially display books
 displayBook();

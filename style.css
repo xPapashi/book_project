@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -50,6 +51,7 @@ body {
   text-align: center;
   background-color: #fff;
   padding: 2em;
+  margin-bottom: 2em;
   border-radius: 10px;
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
     rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
@@ -70,6 +72,38 @@ body {
 
 .modal button:hover {
     background-color: #3294d1;
+}
+
+.scroll-down span{
+  font-size: 2.5em;
+  color: #9c9a9a;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.scroll-down span:hover {
+  color: #3294d1;
+}
+
+.scroll-up {display: none;}
+
+.scroll-up span {
+  font-size: 1.8em;
+  font-weight: 500;
+  position:fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  color: #9c9a9a;
+  border: 3px solid #9c9a9a;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.scroll-up span:hover {
+  border: 3px solid #3294d1;
+  color: #3294d1;
 }
 
 /* CARD */
