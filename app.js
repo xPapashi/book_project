@@ -6,42 +6,6 @@ const myLibrary = [
     pages: "250",
     read: false,
   },
-  {
-    title: "Harry Potter",
-    author: "J. K. Rowling",
-    pages: "250",
-    read: false,
-  },
-  {
-    title: "Harry Potter",
-    author: "J. K. Rowling",
-    pages: "250",
-    read: false,
-  },
-  {
-    title: "Harry Potter",
-    author: "J. K. Rowling",
-    pages: "250",
-    read: false,
-  },
-  {
-    title: "Harry Potter",
-    author: "J. K. Rowling",
-    pages: "250",
-    read: false,
-  },
-  {
-    title: "Harry Potter",
-    author: "J. K. Rowling",
-    pages: "250",
-    read: false,
-  },
-  {
-    title: "Harry Potter",
-    author: "J. K. Rowling",
-    pages: "250",
-    read: false,
-  },
 ];
 
 //Searching for button class
@@ -66,6 +30,19 @@ const bTitle = document.getElementById("title");
 const bAuthor = document.getElementById("author");
 const bPages = document.getElementById("pages");
 const bRead = document.getElementById("read");
+
+function formValidation() {
+  const title = bTitle.value.trim();
+  const author = bAuthor.value.trim();
+  const pages = bPages.value.trim();
+
+  if (title === "" || author === "" || pages === "") {
+    return false;
+  } else if (pages > 25000) {
+    return false;
+  }
+  return true;
+}
 
 //Adding books to the myLibrary array
 function addBookToLibrary() {
@@ -121,11 +98,11 @@ function displayBook() {
     cards.appendChild(card);
   }
   removeCards();
-  changeRead();
+  changeReadStatus();
 }
 
 //Change read status
-function changeRead() {
+function changeReadStatus() {
   const readCards = document.querySelectorAll(".rmRead");
 
   readCards.forEach((button) => {
@@ -194,11 +171,13 @@ document.addEventListener("keydown", function (e) {
 
 //Add book from form and clear it
 submitBtn.addEventListener("click", function (e) {
-  addBookToLibrary();
-  e.preventDefault();
-  closeModal();
-  form.reset();
-  window.scrollTo(0, 620);
+  if (formValidation()) {
+    addBookToLibrary();
+    e.preventDefault();
+    closeModal();
+    form.reset();
+    window.scrollTo(0, 620);
+  }
 });
 
 /* CARDS */
@@ -222,9 +201,9 @@ scrollUp.addEventListener("click", () => {
   window.scrollTo(0, 0);
 });
 
-window.onscroll = function() {
+window.onscroll = function () {
   console.log("SCROLLING");
-  scrollUp.style.display = window.scrollY > 300 ? 'block' : 'none'; 
+  scrollUp.style.display = window.scrollY > 200 ? "block" : "none";
 };
 
 //Initially display books
